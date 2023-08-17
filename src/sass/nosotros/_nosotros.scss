@@ -1,0 +1,31 @@
+@use "../globales/variables" as v;
+@use "../globales/mixin" as m;
+
+.nosotros {
+  display: grid;
+  align-items: center;
+  margin: 4rem;
+  h2 {
+    font-family: v.$fuente_segunda;
+    text-align: center;
+  }
+  p {
+    font-family: v.$fuente_segunda;
+    color: v.$negroOscuro;
+  }
+  @include m.tablet {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    h2 {
+      text-align: left;
+    }
+  }
+  .imagen-nosotros {
+    -webkit-box-shadow: 3px 5px 33px -11px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 3px 5px 33px -11px rgba(66, 68, 90, 1);
+    box-shadow: 3px 5px 33px -11px rgba(66, 68, 90, 1);
+    margin: 0 auto;
+    @include m.tablet { 
+        width: 70%;
+    }
+  }
+}

@@ -1,0 +1,186 @@
+@use "../globales/variables" as v;
+@use "../globales/mixin" as m;
+
+.contenedor-productos-principal {
+  padding: 0.25rem;
+  background-color: v.$blanco;
+  width: 100%;
+  margin: 0 auto;
+  h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: v.$azulOscuro;
+    font-family: v.$fuente_principal;
+    span {
+      color: v.$rojo;
+    }
+  }
+  .contenedor-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include m.tablet {
+      flex-direction: column;
+    }
+    @include m.desktop {
+      flex-direction: row;
+    }
+  }
+}
+
+.productos-grid {
+  display: grid;
+  gap: 1rem;
+  flex: 1;
+  grid-template-columns: repeat(1, 1fr);
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include m.desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.producto {
+  background-color: v.$blanco;
+  padding: 1rem;
+  width: 100%;
+  height: 25rem;
+  -webkit-box-shadow: 1px 3px 23px 0px rgba(227, 228, 231, 1);
+  -moz-box-shadow: 1px 3px 23px 0px rgba(227, 228, 231, 1);
+  box-shadow: 1px 3px 23px 0px rgba(227, 228, 231, 1);
+  border-radius: 1rem;
+
+  @include m.tablet {
+    height: 25rem;
+  }
+
+  h4 {
+    font-size: 1.85rem;
+    color: v.$negroOscuro;
+    font-family: v.$fuente_principal;
+    margin: 0;
+    padding-bottom: 0.24rem;
+    @include m.desktop {
+      font-size: 1.05rem;
+    }
+    @include m.desktopLarge {
+      font-size: 1.5rem;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    margin-top: 1rem;
+    @include m.desktop {
+      margin-top: 0;
+    }
+    @include m.desktopLarge {
+      margin-top: 1rem;
+    }
+  }
+  .descripcion {
+    font-family: v.$fuente_principal;
+    color: v.$grisClaro;
+    margin-top: 1.5rem;
+    @include m.desktop {
+      margin-top: 0;
+      font-size: 0.85rem;
+    }
+    @include m.desktopLarge {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  .precio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    @include m.desktop {
+      flex-direction: column;
+    }
+    @include m.desktopLarge {
+      flex-direction: row;
+    }
+    .monto {
+      font-size: 1.025rem;
+      font-weight: 500;
+      font-family: v.$fuente_segunda;
+      @include m.desktop {
+        margin-top: 0.25rem;
+      }
+    }
+
+    .boton {
+      padding: 0.25rem 0.5rem;
+      background-color: v.$rojo;
+      border-radius: 100vmax;
+      color: v.$blanco;
+      font-size: 1.025rem;
+      font-family: v.$fuente_segunda;
+    }
+  }
+}
+
+.aside {
+  width: 100%;
+  height: auto;
+  background-color: v.$blanco;
+  -webkit-box-shadow: 1px 3px 23px 0px rgba(227, 228, 231, 1);
+  -moz-box-shadow: 1px 3px 23px 0px rgba(227, 228, 231, 1);
+  box-shadow: 1px 3px 23px 0px rgba(227, 228, 231, 1);
+  padding: 1rem;
+  @include m.tablet {
+    width: 100%;
+    height: 100%;
+  }
+  @include m.desktop {
+    width: 30rem;
+  }
+  ul {
+    text-align: center;
+    line-height: 2;
+    font-family: v.$fuente_segunda;
+  }
+  .imagen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 5rem;
+    gap: 1.5rem;
+    max-width: 100%;
+
+    img {
+      animation-name: subir;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+    }
+
+    @include m.tablet {
+      flex-direction: row;
+      width: 10rem;
+      height: 100%;
+    }
+    @include m.desktop {
+      flex-direction: column;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+}
